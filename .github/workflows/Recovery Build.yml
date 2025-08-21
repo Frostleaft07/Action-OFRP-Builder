@@ -126,7 +126,7 @@ jobs:
 
     - name: apply patches
       run: |
-        cd bootable/recovery
+        cd ${{ steps.pwd.outputs.workspace-folder }}/fox_${{ github.event.inputs.MANIFEST_BRANCH }}/bootable/recovery
         curl -Lo patch1 https://github.com/HemanthJabalpuri/twrp_realme_RMX2185/releases/download/R11.1_0/0001-String-fixes-and-added-some-shell-functions-a11.patch.txt
         curl -Lo patch2 https://github.com/HemanthJabalpuri/twrp_realme_RMX2185/releases/download/R11.1_0/0001-Super-as-Super-only.patch-a11.txt
         patch -p1< patch1 && patch -p1< patch2
